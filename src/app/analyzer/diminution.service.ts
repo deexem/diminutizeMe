@@ -9,24 +9,30 @@ export class DiminutionService {
   constructor() {
   }
 
-
   diminutize(wordToDiminutize: string): AnalyzerResult {
     if(wordToDiminutize.trim() == ""){
-      return {final:""}
+      return {
+        rule: $localize`:@@noInput:no input, no output`,
+        final:""
+      }
     }
     if (wordToDiminutize.endsWith("ing")) {
       return {
+        rule: $localize `:@@endInIng:ends in -ing`,
         final: wordToDiminutize.substring(0, wordToDiminutize.length - 1) + "kje"
       }
     }
     if (wordToDiminutize.endsWith("ng")) {
       return {
+        rule: $localize `:@@endInNg:ends in -ng but not in -ing`,
         final: wordToDiminutize + "etje"
       }
     }
-    if (["s", "f", "t", "k", "c", "h", "p", "d", "g"]
+    const endConsonants = ["s", "f", "t", "k", "c", "h", "p", "d", "g"];
+    if (endConsonants
       .some(l => wordToDiminutize.endsWith(l))) {
       return {
+        rule: $localize `:@@endIn:ends in (${endConsonants.join(",")}:L:)`,
         final: wordToDiminutize + "je"
       }
     }
@@ -41,12 +47,14 @@ export class DiminutionService {
         && isVowel(wordToDiminutize[len - 2])
         && !isVowel(wordToDiminutize[len - 1])) {
         return {
+          rule: $localize `:@@endInCVC:Ends in consonant-vowel-consonant`,
           final: wordToDiminutize + wordToDiminutize[len - 1] + "etje"
         }
       }
     }
     if (wordToDiminutize.endsWith("m")) {
       return {
+        rule: $localize`:@@endInM:ends in -m`,
         final: wordToDiminutize + "pje"
       }
     }
@@ -55,11 +63,13 @@ export class DiminutionService {
       if (isVowel(wordToDiminutize[len - 1])
         && (!isVowel(wordToDiminutize[len - 2]))) {
         return {
+          rule: $localize`:@@endInV:ends in single vowel`,
           final: wordToDiminutize + wordToDiminutize[len - 1] + "tje"
         }
       }
     }
     return {
+      rule: $localize`:@@nothingFits:nothing else fits`,
       final: wordToDiminutize + "tje"
     }
   }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="noInput" datatype="html">
+        <source>No input, no output</source>
+      </trans-unit>
+      <trans-unit id="endInIng" datatype="html">
+        <source>Ends in -ing</source>
+      </trans-unit>
+      <trans-unit id="endInNg" datatype="html">
+        <source>Ends in -ng but not -ing</source>
+      </trans-unit>
+      <trans-unit id="endIn" datatype="html">
+        <source>Ends in
+          <x id="L"/>
+        </source>
+      </trans-unit>
+      <trans-unit id="endInCVC" datatype="html">
+        <source>Ends in consonant-vowel-consonant</source>
+      </trans-unit>
+      <trans-unit id="endInM" datatype="html">
+        <source>Ends in m</source>
+      </trans-unit>
+      <trans-unit id="endInV" datatype="html">
+        <source>Ends in single vowel</source>
+      </trans-unit>
+      <trans-unit id="nothingFits" datatype="html">
+        <source>Nothing fits</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

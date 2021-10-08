@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {AnalyzerResult} from "../analyzer-result";
 
 @Component({
   selector: 'app-analyzer',
@@ -7,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class AnalyzerComponent implements OnInit {
 
-  @Input() finalWord: string = ""
+  @Input() analyzerResult: AnalyzerResult = {rule: "", final: ""}
 
   constructor() {
   }
