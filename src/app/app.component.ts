@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {AnalyzerResult} from "./analyzer-result";
+import {DiminutionService} from "./analyzer/diminution.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  wordToDiminutize: string
+  analyzerResult: AnalyzerResult = {final: ""}
+
+  constructor(private diminutionService: DiminutionService) {
+    this.wordToDiminutize = ""
+  }
+
+
   title = 'diminutizeMe';
+
+  analyze() {
+    this.analyzerResult = this.diminutionService.diminutize(this.wordToDiminutize)
+  }
 }
