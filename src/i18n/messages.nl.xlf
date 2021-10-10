@@ -32,7 +32,7 @@
         <target>eindigt op een lange klinker</target>
       </trans-unit>
       <trans-unit id="endsInY" datatype="html">
-        <target>eindigt op een y</target>
+        <target>eindigt op -y</target>
       </trans-unit>
     </body>
   </file>
