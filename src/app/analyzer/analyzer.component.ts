@@ -8,7 +8,7 @@ import {AnalyzerResult} from "../analyzer-result";
 })
 export class AnalyzerComponent implements OnInit {
 
-  @Input() analyzerResult: AnalyzerResult = {rule: "", final: ""}
+  @Input() analyzerResult: AnalyzerResult = {rule: "", final: "", root: "", fusion: ""}
 
   constructor() {
   }
