@@ -58,6 +58,7 @@ describe('AppComponent', () => {
     ["boom", "boompje", "boo", "mp", "je"],
     ["man", "mannetje", "ma", "nnet", "je"],
     ["foto", "fotootje", "fot", "oot", "je"],
+    ["party", "party'tje", "party", "'t", "je"]
   ]
 
   WordStructure.forEach(wp => it(`should turn ${wp[0]} into ${wp[1]} having the root ${wp[2]}, fusion: ${wp[3]}, suffix: ${wp[4]}`, () => {

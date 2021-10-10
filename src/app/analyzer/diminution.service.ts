@@ -83,6 +83,11 @@ export class DiminutionService {
         )
       }
     }
+    if (cleanedUpWord.endsWith("y")) {
+      let fusion = "'t"
+      return DiminutionService.createResult($localize`:@@endsInY:ends in y`, cleanedUpWord + fusion + suffix, cleanedUpWord, fusion, suffix)
+    }
+
     let fusion = "t";
     return DiminutionService.createResult(
       $localize`:@@nothingFits:nothing else fits`,
