@@ -3,30 +3,36 @@
   <file source-language="nl" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="noInput" datatype="html">
-        <source>Voer een woord in</source>
+        <target>Voer een woord in</target>
       </trans-unit>
       <trans-unit id="endInIng" datatype="html">
-        <source>Eindigt op -ing</source>
+        <target>Eindigt op -ing</target>
       </trans-unit>
       <trans-unit id="endInNg" datatype="html">
-        <source>Eindigt op -ng, maar niet op -ing</source>
+        <target>Eindigt op -ng, maar niet op -ing</target>
       </trans-unit>
       <trans-unit id="endIn" datatype="html">
-        <source>Eindigt op
+        <target>Eindigt op
           <x id="L"/>
-        </source>
+        </target>
       </trans-unit>
       <trans-unit id="endInCVC" datatype="html">
-        <source>Eindigt op medeklinker - klinker - medeklinker</source>
+        <target>Eindigt op medeklinker - klinker - medeklinker</target>
       </trans-unit>
       <trans-unit id="endInM" datatype="html">
-        <source>Eindigt op m</source>
+        <target>Eindigt op m</target>
       </trans-unit>
       <trans-unit id="endInV" datatype="html">
-        <source>Eindigt op 1 klinker</source>
+        <target>Eindigt op 1 klinker</target>
       </trans-unit>
       <trans-unit id="nothingFits" datatype="html">
-        <source>Overig</source>
+        <target>Overig</target>
+      </trans-unit>
+      <trans-unit id="endInLV" datatype="html">
+        <target>eindigt op een lange klinker</target>
+      </trans-unit>
+      <trans-unit id="endsInY" datatype="html">
+        <target>eindigt op een y</target>
       </trans-unit>
     </body>
   </file>

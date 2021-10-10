@@ -28,6 +28,12 @@
       <trans-unit id="nothingFits" datatype="html">
         <source>Nothing fits</source>
       </trans-unit>
+      <trans-unit id="endInLV" datatype="html">
+        <source>Ends in long vowel</source>
+      </trans-unit>
+      <trans-unit id="endsInY" datatype="html">
+        <source>Ends in y</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

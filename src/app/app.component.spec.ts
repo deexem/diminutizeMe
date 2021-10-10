@@ -58,6 +58,7 @@ describe('AppComponent', () => {
     ["boom", "boompje", "boo", "mp", "je"],
     ["man", "mannetje", "ma", "nnet", "je"],
     ["foto", "fotootje", "fot", "oot", "je"],
+    ["viezi", "viezietje", "viez", "iet", "je"],
     ["party", "party'tje", "party", "'t", "je"]
   ]
 

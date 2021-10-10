@@ -73,14 +73,19 @@ export class DiminutionService {
       if (isVowel(cleanedUpWord[len - 1])
         && (!isVowel(cleanedUpWord[len - 2]))) {
         let root = cleanedUpWord.substr(0, len - 1);
-        let fusion = cleanedUpWord[len - 1].repeat(2) + "t";
-        return DiminutionService.createResult(
-          $localize`:@@endInV:ends in single vowel`,
-          root + fusion + suffix,
-          root,
-          fusion,
-          suffix
-        )
+        if (cleanedUpWord[len - 1] == 'i') {
+          let fusion = "iet"
+          return DiminutionService.createResult($localize`:@@endInLV:ends in long vowel`, root + fusion + suffix, root, fusion, suffix)
+        } else {
+          let fusion = cleanedUpWord[len - 1].repeat(2) + "t";
+          return DiminutionService.createResult(
+            $localize`:@@endInV:ends in single vowel`,
+            root + fusion + suffix,
+            root,
+            fusion,
+            suffix
+          )
+        }
       }
     }
     if (cleanedUpWord.endsWith("y")) {

@@ -62,7 +62,7 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true,
-              "localize": false
+              "localize": ["nl"]
             }
           },
           "defaultConfiguration": "production"
