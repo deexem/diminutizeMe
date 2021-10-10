@@ -13,18 +13,19 @@ export class DiminutionService {
   diminutize(wordToDiminutize: string): AnalyzerResult {
     const cleanedUpWord = wordToDiminutize.trim();
     if (cleanedUpWord == "") {
-      return DiminutionService.createResult($localize`:@@noInput:no input, no output`, "", "")
+      return DiminutionService.createResult($localize`:@@noInput:no input, no output`, "", "", "", "")
     }
+    let suffix = "je";
     if (cleanedUpWord.endsWith("ing")) {
       let root = cleanedUpWord.substring(0, cleanedUpWord.length - 1);
       let fusion = "k";
-      return DiminutionService.createResult($localize`:@@endInIng:ends in -ing`, root + fusion + "je", root, fusion)
+      return DiminutionService.createResult($localize`:@@endInIng:ends in -ing`, root + fusion + suffix, root, fusion, suffix)
     }
     if (cleanedUpWord.endsWith("ng")) {
       let fusion = "et";
       return DiminutionService.createResult(
         $localize`:@@endInNg:ends in -ng but not in -ing`,
-        cleanedUpWord + fusion + "je", cleanedUpWord, fusion)
+        cleanedUpWord + fusion + suffix, cleanedUpWord, fusion, suffix)
     }
     const endConsonants = ["s", "f", "t", "k", "c", "h", "p", "d", "g"];
 
@@ -41,9 +42,10 @@ export class DiminutionService {
         let fusion = cleanedUpWord[len - 1].repeat(2) + "et";
         return DiminutionService.createResult(
           $localize`:@@endInCVC:Ends in consonant-vowel-consonant`,
-          root + fusion + "je",
+          root + fusion + suffix,
           root,
-          fusion
+          fusion,
+          suffix
         )
       }
     }
@@ -53,16 +55,17 @@ export class DiminutionService {
       let root = cleanedUpWord;
       return DiminutionService.createResult(
         $localize`:@@endIn:ends in (${endConsonants.join(",")}:L:)`,
-        root + "je", root, "")
+        root + suffix, root, "", suffix)
     }
     if (cleanedUpWord.endsWith("m")) {
       let root = cleanedUpWord.substr(0, cleanedUpWord.length - 1);
       let fusion = "mp";
       return DiminutionService.createResult(
         $localize`:@@endInM:ends in -m`,
-        root + fusion + "je",
+        root + fusion + suffix,
         root,
-        fusion
+        fusion,
+        suffix
       )
     }
     if (cleanedUpWord.length >= 2) {
@@ -73,25 +76,27 @@ export class DiminutionService {
         let fusion = cleanedUpWord[len - 1].repeat(2) + "t";
         return DiminutionService.createResult(
           $localize`:@@endInV:ends in single vowel`,
-          root + fusion + "je",
+          root + fusion + suffix,
           root,
-          fusion
+          fusion,
+          suffix
         )
       }
     }
     let fusion = "t";
     return DiminutionService.createResult(
       $localize`:@@nothingFits:nothing else fits`,
-      cleanedUpWord + fusion + "je", cleanedUpWord, fusion
+      cleanedUpWord + fusion + suffix, cleanedUpWord, fusion, suffix
     )
   }
 
-  private static createResult(rule: string, final: string = "", root: string = "", fusion: string = ""): AnalyzerResult {
+  private static createResult(rule: string, final: string, root: string, fusion: string, suffix: string): AnalyzerResult {
     return {
       rule: rule,
       final: final,
       root: root,
-      fusion: fusion
+      fusion: fusion,
+      suffix: suffix
     };
   }
 }

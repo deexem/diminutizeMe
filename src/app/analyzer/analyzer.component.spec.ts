@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AnalyzerComponent } from './analyzer.component';
+import {AnalyzerComponent} from './analyzer.component';
 import {By} from "@angular/platform-browser";
 
 describe('AnalyzerComponent', () => {
@@ -9,9 +9,9 @@ describe('AnalyzerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AnalyzerComponent ]
+      declarations: [AnalyzerComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -25,7 +25,7 @@ describe('AnalyzerComponent', () => {
   });
 
   it('should mark the root', () => {
-    fixture.componentInstance.analyzerResult = {rule: "a rule", final:"a result", root: "book", fusion: ""}
+    fixture.componentInstance.analyzerResult = {rule: "a rule", final: "a result", root: "boo", fusion: "k", suffix: "je"}
     fixture.detectChanges()
     let rootSpan = fixture.debugElement.query(By.css("#root"))
     expect(rootSpan).toBeTruthy()
@@ -35,7 +35,13 @@ describe('AnalyzerComponent', () => {
   })
 
   it('should mark the fusion', () => {
-    fixture.componentInstance.analyzerResult = {rule: "a rule", final:"a result", root: "book", fusion: "boo"}
+    fixture.componentInstance.analyzerResult = {
+      rule: "a rule",
+      final: "a result",
+      root: "boo",
+      fusion: "k",
+      suffix: "je"
+    }
     fixture.detectChanges()
     let fusionSpan = fixture.debugElement.query(By.css("#fusion"))
     expect(fusionSpan).toBeTruthy()

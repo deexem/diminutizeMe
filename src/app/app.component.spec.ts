@@ -29,7 +29,7 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('diminutizeMe');
   });
 
-  function checkDiminution(wordToDiminutize: string, result: string, root: string, fusion: string) {
+  function checkDiminution(wordToDiminutize: string, result: string, root: string, fusion: string, suffix: string) {
     const fixture = TestBed.createComponent(AppComponent);
     const input = fixture.nativeElement.querySelector('input');
     fixture.detectChanges();
@@ -45,28 +45,31 @@ describe('AppComponent', () => {
     let fusionSpan = fixture.debugElement.query(By.css("#fusion"))
     expect(fusionSpan).toBeTruthy()
     expect(fusionSpan.nativeElement.textContent).toBe(fusion)
+    let suffixSpan = fixture.debugElement.query(By.css("#suffix"))
+    expect(suffixSpan).toBeTruthy()
+    expect(suffixSpan.nativeElement.textContent).toBe(suffix)
     expect(resultParagraph.textContent).toBe(result)
   }
 
   const WordStructure = [
-    ["koning", "koninkje", "konin", "k"],
-    ["gang", "gangetje", "gang", "et"],
-    ["book", "bookje", "book", ""],
-    ["boom", "boompje", "boo", "mp"],
-    ["man", "mannetje", "ma", "nnet"],
-    ["foto", "fotootje", "fot", "oot"],
+    ["koning", "koninkje", "konin", "k", "je"],
+    ["gang", "gangetje", "gang", "et", "je"],
+    ["book", "bookje", "book", "", "je"],
+    ["boom", "boompje", "boo", "mp", "je"],
+    ["man", "mannetje", "ma", "nnet", "je"],
+    ["foto", "fotootje", "fot", "oot", "je"],
   ]
 
-  WordStructure.forEach(wp => it(`should turn ${wp[0]} into ${wp[1]} having the root ${wp[2]}, fusion: ${wp[3]}`, () => {
-    checkDiminution(wp[0], wp[1], wp[2], wp[3])
+  WordStructure.forEach(wp => it(`should turn ${wp[0]} into ${wp[1]} having the root ${wp[2]}, fusion: ${wp[3]}, suffix: ${wp[4]}`, () => {
+    checkDiminution(wp[0], wp[1], wp[2], wp[3], wp[4])
   }))
 
   it("should be empty if no input", () => {
-    checkDiminution("", "", "", "")
+    checkDiminution("", "", "", "", "")
   })
 
   it("should not be thrown off by trailing whitespace", () => {
-    checkDiminution("book   ", "bookje", "book", "")
+    checkDiminution("book   ", "bookje", "book", "", "je")
   })
 
 });

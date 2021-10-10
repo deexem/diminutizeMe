@@ -10,7 +10,7 @@ import {DiminutionService} from "./analyzer/diminution.service";
 export class AppComponent {
 
   wordToDiminutize: string
-  analyzerResult: AnalyzerResult = {rule:"", final: "", root: "", fusion: ""}
+  analyzerResult: AnalyzerResult = {rule: "", final: "", root: "", fusion: "", suffix: ""}
 
   constructor(private diminutionService: DiminutionService) {
     this.wordToDiminutize = ""
