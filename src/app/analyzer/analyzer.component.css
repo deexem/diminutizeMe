@@ -1,10 +1,15 @@
 .root {
   color: green;
 }
+
 .fusion {
   color: orange;
+  background: -webkit-linear-gradient(left, green, orange, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: bold;
 }
+
 .suffix {
   color: red;
   font-weight: bold;
